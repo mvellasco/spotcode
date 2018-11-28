@@ -21,7 +21,7 @@
 
 # Ignore temporary files in development
 /tmp/*
-!/storage/.keep
+!/tmp/.keep
 
 
 /node_modules
