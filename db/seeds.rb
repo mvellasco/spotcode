@@ -2,7 +2,7 @@
 # SONGS
 #========================
 
-tmp_dir = Rails.root.join("tmp")
+tmp_dir = Rails.root.join("app/assets")
 
 
 rock = Category.create(name: "Rock")
