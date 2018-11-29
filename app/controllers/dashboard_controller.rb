@@ -8,7 +8,7 @@ class DashboardController < ApplicationController
 
   def load_recently_heard
     @recent_albums = current_user.recently_heards.order("created_at DESC")
-                     .limit(4).map(&:album)
+                     .group(:album_id).limit(4).map(&:album)
   end
 
   def load_recomendations
