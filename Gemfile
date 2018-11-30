@@ -20,7 +20,7 @@ gem 'webpacker'
 
 # Gems devise and pwa
 gem 'devise', '~> 4.5.0'
-gem 'pwa', '~> 4.0.5'
+gem 'serviceworker-rails'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
