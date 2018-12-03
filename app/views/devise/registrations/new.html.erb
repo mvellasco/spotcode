@@ -5,11 +5,11 @@
     <div class="field">
       <%= f.label :email, class: "label control" %>
       <%= f.email_field :email, autofocus: true, autocomplete: "email",
-                        class: "input", placeholder: "Your best email" %>
+                        class: "input", placeholder: "Seu melhor email" %>
     </div>
 
     <div class="field">
-      <%= f.label :password, class: "label control" %>
+      <%= f.label :senha, class: "label control" %>
       <%= f.password_field :password, autocomplete: "new-password",
                            class: "input" %>
       <% if @minimum_password_length %>
@@ -18,7 +18,7 @@
     </div>
 
     <div class="field">
-      <%= f.label :password_confirmation, class: "label control" %>
+      <%= f.label :confirme_a_senha, class: "label control" %>
       <%= f.password_field :password_confirmation, autocomplete: "new-password",
                            class: "input" %>
     </div>
@@ -26,11 +26,12 @@
     <div class="field is-grouped is-grouped-centered">
       <p class="control">
         <button type="submit" class="button is-primary is-outlined is-medium">
-          Register
+          Cadastrar
         </button>
       </p>
       <p class="control">
-        <%= link_to "Go Back", root_path, class: "button is-light is-medium" %>
+        <%= link_to "Voltar", root_path, class: "button is-black is-outlined
+                                                  is-medium" %>
       </p>
     </div>
   <% end %>
