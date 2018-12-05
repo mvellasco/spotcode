@@ -1,39 +1,44 @@
 <section class="section has-text-white">
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-    <%= devise_error_messages! %>
+  <div class="columns">
+    <div class="column is-half is-offset-one-quarter">
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <div class="has-text-danger has-text-centered">
+          <%= devise_error_messages!%>
+        </div>
 
-    <div class="field">
-      <%= f.label :email, class: "label control" %>
-      <%= f.email_field :email, autofocus: true, autocomplete: "email",
-                        class: "input", placeholder: "Seu melhor email" %>
-    </div>
+        <div class="field">
+          <%= f.label :email, class: "label control" %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email",
+                            class: "input", placeholder: "Seu melhor email" %>
+        </div>
 
-    <div class="field">
-      <%= f.label :senha, class: "label control" %>
-      <%= f.password_field :password, autocomplete: "new-password",
-                           class: "input" %>
-      <% if @minimum_password_length %>
-        <p class="help">(<%= @minimum_password_length %> characters minimum)</p>
+        <div class="field">
+          <%= f.label :senha, class: "label control" %>
+          <%= f.password_field :password, autocomplete: "new-password",
+                               class: "input", placeholder: "Uma senha super secreta" %>
+          <% if @minimum_password_length %>
+            <p class="help">(<%= @minimum_password_length %> characters minimum)</p>
+          <% end %>
+        </div>
+
+        <div class="field">
+          <%= f.label :confirme_a_senha, class: "label control" %>
+          <%= f.password_field :password_confirmation, autocomplete: "new-password",
+                               class: "input", placeholder: "Agora repita para lembrar" %>
+        </div>
+
+        <div class="field is-grouped is-grouped-centered">
+          <p class="control">
+            <button type="submit" class="button is-primary is-outlined is-medium">
+              CADASTRAR
+            </button>
+          </p>
+          <p class="control">
+            <%= link_to "VOLTAR", root_path, class: "button is-black is-outlined
+                                                      is-medium" %>
+          </p>
+        </div>
       <% end %>
     </div>
-
-    <div class="field">
-      <%= f.label :confirme_a_senha, class: "label control" %>
-      <%= f.password_field :password_confirmation, autocomplete: "new-password",
-                           class: "input" %>
-    </div>
-
-    <div class="field is-grouped is-grouped-centered">
-      <p class="control">
-        <button type="submit" class="button is-primary is-outlined is-medium">
-          Cadastrar
-        </button>
-      </p>
-      <p class="control">
-        <%= link_to "Voltar", root_path, class: "button is-black is-outlined
-                                                  is-medium" %>
-      </p>
-    </div>
-  <% end %>
-
+  </div>
 </section>
