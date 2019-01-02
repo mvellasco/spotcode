@@ -1,43 +1,60 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<section class="section has-text-white">
+  <div class="columns">
+    <div class="column is-three-fifths">
+      <h1 class="has-text-centered has-text-white title is-4">Editar <%= resource_name.to_s.humanize %></h1>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+        <div class="has-text-danger has-text-centered">
+          <%= devise_error_messages!%>
+        </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        <div class="field">
+          <%= f.label :seu_email, class: "label control" %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "input" %>
+        </div>
+
+        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+          <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+        <% end %>
+
+        <div class="field">
+          <%= f.label :senha, class: "label control" %>
+          <%= f.password_field :password, autocomplete: "new-password", class: "input" %>
+          <% if @minimum_password_length %>
+            <br />
+            <em>Deixe em branco caso não queira mudar e a nova senha deve ter no mínimo <%= @minimum_password_length %> caracteres</em>
+          <% end %>
+        </div>
+
+        <div class="field">
+          <%= f.label :confirme_a_senha, class: "label control" %>
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "input" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :senha_atual, class: "label" %>
+          <%= f.password_field :current_password, autocomplete: "current-password", class: "input" %>
+          <em>Precisamos da sua senha atual para confirmar as mudanças</em>
+        </div>
+
+        <br>
+
+        <div class="field is-grouped is-grouped-centered">
+          <p class="control">
+            <button type="submit" class="button is-primary is-outlined is-medium">
+              SALVAR
+            </button>
+          </p>
+          <p class="control">
+            <%= link_to "VOLTAR", root_path, class: "button is-black is-outlined
+                                                      is-medium" %>
+          </p>
+        </div>
+      <% end %>
+    </div>
+    <div class="column has-text-centered">
+      <h1 class="has-text-centered has-text-danger title is-4">Cancelar minha conta</h1>
+      <%= button_to "Quero cancelar minha conta!", registration_path(resource_name), data: { confirm: "Você tem certeza?" }, method: :delete, class:"button is-danger is-outlined" %>
+    </div>
   </div>
-
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+</section>

@@ -17,7 +17,7 @@
           <%= f.password_field :password, autocomplete: "new-password",
                                class: "input", placeholder: "Uma senha super secreta" %>
           <% if @minimum_password_length %>
-            <p class="help">(<%= @minimum_password_length %> characters minimum)</p>
+            <p class="help">(No mínimo <%= @minimum_password_length %> caracteres)</p>
           <% end %>
         </div>
 
@@ -26,7 +26,7 @@
           <%= f.password_field :password_confirmation, autocomplete: "new-password",
                                class: "input", placeholder: "Agora repita para lembrar" %>
         </div>
-
+        <br><br>
         <div class="field is-grouped is-grouped-centered">
           <p class="control">
             <button type="submit" class="button is-primary is-outlined is-medium">
