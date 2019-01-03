@@ -1,4 +1,9 @@
 <% if user_signed_in? %>
+  <nav class="columns is-mobile is-fixed-bottom has-margin-bottom">
+    <div class="column has-text-centered">
+      <%= audio_tag("", controls: true, id: "song-player") %>
+    </div>
+  </nav>
   <nav class="columns is-mobile is-dark navbar is-fixed-bottom toolbar">
     <div class="column has-text-centered">
       <%= link_to authenticated_root_path, class: "has-text-white" do %>

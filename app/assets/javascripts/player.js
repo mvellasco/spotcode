@@ -1,5 +1,6 @@
 $(document).on("turbolinks:load", function(){
   const player = $("audio#song-player");
+  player.hide();
   let currentSong = null;
 
   $("div.play-button a").click(function(){
@@ -12,6 +13,7 @@ $(document).on("turbolinks:load", function(){
       }
     } else {
       playNewSong(button);
+      $('html, body').animate({ scrollTop: $("#song-player").offset().top }, 2000);
     }
   });
 
@@ -19,6 +21,7 @@ $(document).on("turbolinks:load", function(){
   $("button#play-all").click(function(){
     button = $("div.song-item:eq(0) div.play-button a");
     playNewSong(button);
+    $('html, body').animate({ scrollTop: $("#song-player").offset().top }, 2000);
   });
 
 
@@ -38,6 +41,7 @@ $(document).on("turbolinks:load", function(){
     $(button).closest("div.song-item").addClass("playing");
     $("div.song-item div.play-button i").removeClass("fa-pause-circle").addClass("fa-play-circle");
     player.prop("src", $(button).data("song"));
+    player.show();
     resumeSong(button);
     sendRecentlyHeard(button);
     currentSong = button.closest("div.song-item");
