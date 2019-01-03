@@ -2,13 +2,13 @@
   <div class="columns has-text-centered">
     <div class="column is-half-mobile is-offset-one-quarter-mobile is-2-desktop is-offset-5-desktop">
       <%= image_tag url_for(@album.cover) %>
-      <p class="is-size-6 has-text-weight-semibold"><%= @album.title %></p>
+      <p class="is-size-5 has-text-weight-semibold"><%= @album.title %> <%= favorite_button(@album) %></p>
     </div>
   </div>
 
   <br />
 
-  <h2 class="is-size-5 has-text-weight-bold">Músicas</h2>
+  <h2 class="is-size-4 has-text-weight-bold has-text-centered">Músicas</h2>
 
   <br />
 

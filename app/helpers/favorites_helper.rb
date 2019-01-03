@@ -14,7 +14,11 @@ module FavoritesHelper
   def render_button(id, type, method, icon_format)
     url = send("favorite_#{type.to_s.downcase}_path", id)
     link_to url, class: "has-text-white", data: { remote: true, method: method, kind: type.to_s, id: id } do
-      content_tag :i, "", class: "#{icon_format} fa-heart fa-2x"
+      if type.to_s.downcase == "song"
+        content_tag :i, "", class: "#{icon_format} fa-heart fa-2x"
+      else
+        content_tag :i, "", class: "#{icon_format} fa-heart"
+      end
     end
   end
 end
